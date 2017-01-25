@@ -1,0 +1,20 @@
+body {
+	padding: 50px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: #00B7FF;
+}
+
+#users-container{
+	margin-top: 30px;
+}
+
+.user-container{
+	margin-bottom: 10px;
+}
+
+.user-container input, .user-container button{
+	margin-left: 10px;
+}
