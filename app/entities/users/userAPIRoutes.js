@@ -3,42 +3,42 @@ const user = express.Router();
 
 const userService = require('./userService');
 
-user.get('/', function(req, res, next) {
-	userService.getAllUsers().then(function(users){
+user.get('/', (req, res, next) => {
+	userService.getAllUsers().then((users) => {
 		res.send(users);
-	}).catch(function(err){
+	}).catch((err) => {
 		res.status(400).end();
 	});
 });
 
-user.post('/', function(req, res, next) {
-	userService.addUser(req.body).then(function(user){
+user.post('/', (req, res, next) => {
+	userService.addUser(req.body).then((user) => {
 		res.status(201).send(user);
-	}).catch(function(err){
+	}).catch((err) => {
 		res.status(400).end();
 	});
 });
 
-user.get('/:id', function(req, res, next) {
-	userService.getUserById(req.params.id).then(function(user){
+user.get('/:id', (req, res, next) => {
+	userService.getUserById(req.params.id).then((user) => {
 		res.send(user);
-	}).catch(function(err){
+	}).catch((err) => {
 		res.status(400).end();
 	});
 });
 
-user.put('/:id', function(req, res, next) {
-	userService.editUser(req.params.id, req.body).then(function(){
+user.put('/:id', (req, res, next) => {
+	userService.editUser(req.params.id, req.body).then(() => {
 		res.end();
-	}).catch(function(err){
+	}).catch((err) => {
 		res.status(400).end();
 	});
 });
 
-user.delete('/:id', function(req, res, next) {
-	userService.deleteUser(req.params.id).then(function(){
+user.delete('/:id', (req, res, next) => {
+	userService.deleteUser(req.params.id).then(() => {
 		res.status(200).end();
-	}).catch(function(err){
+	}).catch((err) => {
 		res.status(400).end();
 	});
 });

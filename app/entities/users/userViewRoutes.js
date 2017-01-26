@@ -3,14 +3,14 @@ const user = express.Router();
 
 const userService = require('./userService');
 
-user.get('/', function(req, res, next) {
+user.get('/', (req, res, next) => {
 	res.render('users');
 });
 
-user.get('/:id', function(req, res, next) {
-	userService.getUserById(req.params.id).then(function(user){
+user.get('/:id', (req, res, next) => {
+	userService.getUserById(req.params.id).then((user)=> {
 		res.render('user');
-	}).catch(function(err){
+	}).catch((err) => {
 		res.status(400).end();
 	});
 });
